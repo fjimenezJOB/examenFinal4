@@ -8,7 +8,6 @@ app.secret_key = 'examen_final'
 csrf = CSRFProtect(app)
 game = Logica(500, 0, False, -1)
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -19,9 +18,8 @@ def ruleta():
     elegidas = request.form.getlist('opciones')
     game.añadir_opciones(elegidas)
     suerte = game.random()
-    saldo, score, ronda, saltar , pierde = game.normas(suerte)
+    saldo, score, ronda, saltar, pierde = game.normas(suerte)
     premios = game.leer_historico()
-
     context = {
         'saldo': saldo,
         'suerte': suerte,
@@ -29,14 +27,21 @@ def ruleta():
         'ronda': ronda,
         'saltar': saltar,
         'opciones': elegidas,
-        'premios' : premios
+        'premios': premios
     }
 
     if pierde == True:
-       return render_template('final.html', **context)
-       
+        return redirect('/final')
+
     return render_template('game.html', **context)
 
+
+@app.route('/final', methods=['POST', 'GET'])
+def final():
+    nombre = request.form.get('nombre')
+    score = game.getScore()
+    game.escribir(nombre, score)
+    return render_template('final.html', score = score)
 
 @app.errorhandler(404)
 def error(error):

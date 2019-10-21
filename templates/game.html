@@ -46,21 +46,13 @@ Ruleta De La Suerte
 
   {% if ronda > 7 %}
 
-    <button class="button is-info"> <a href="{{ url_for('final.html') }}">Retirarse</a> </button>
+    <button class="button is-info"> <a href="{{ url_for('final') }}">Retirarse</a> </button>
 
   {% endif %}
 
   <button class="button">
     <a href="javascript:location.reload()">Tirar ruleta</a>
   </button>
-
-  <section class="premios">
-    <ul>
-      {% for line in premios %}
-        <li>{{ line }}</li>
-      {% endfor %}
-    </ul>
-  </section>
 </section>
 
 {% endblock %}
