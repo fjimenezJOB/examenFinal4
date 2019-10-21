@@ -1,0 +1,10 @@
+body{
+    background-image: url('../img/fondo.jpg');
+    height: 100vh;
+}
+.columns{
+    background-color: #fff;
+}
+.formulario{
+    background-color: #fff;
+}

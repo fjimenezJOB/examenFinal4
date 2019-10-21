@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block title %}
+{{ super() }}
+Home {% endblock %} {% block main %}
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Voltexplay - Ruleta de la suerte
+      </h1>
+      <h2 class="subtitle">
+        Donde tus sueños se hacen realidad
+      </h2>
+    </div>
+  </div>
+</section>
+<div class="columns">
+  <div class="column">
+    
+    <form class="formulario" action="/enviar" method="POST">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+      
+      <div class="select is-multiple">
+        <select multiple size="8" name="opciones_anyadidas">
+          <option value="casilla">Saltar casilla</option>
+          <option value="coche">Coche</option>
+          <option value="gira">5000€ + Vuelves a tirar</option>
+          <option value="bote">Bote</option>
+          <option value="100">100€</option>
+          <option value="pc">Ordenador</option>
+          <option value="x2">Bote X2</option>
+          <option value="nevera">Nevera</option>
+          <option value="moto">Moto</option>
+          <option value="bici">Bici</option>
+        </select>
+      </div>
+    <button class="is-info" type="submit">Enviar</button>
+  </form>
+</div>
+  </div>
+  <div class="column">
+    Second column
+  </div>
+</div>
+  {% endblock %}
+</div>
