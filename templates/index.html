@@ -20,18 +20,18 @@ Elige tus opciones
 
 <div class="columns">
   <div class="column is-left">
-    <form class="formulario" action="/enviar" method="POST">
+    <form class="formulario" action="/ruleta" method="POST">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
 
-      <label class="checkbox"><input  value="saltar" name="opciones" type="checkbox">Saltar</label>
-      <label class="checkbox"><input value="coche"  name="opciones" type="checkbox">Coche</label>
-      <label class="checkbox"><input value="5000"  name="opciones" type="checkbox">5000€ + Vuelve a tirar</label>
-      <label class="checkbox"><input value="bote"  name="opciones" type="checkbox">Bote</label>
-      <label class="checkbox"><input value="100"  name="opciones" type="checkbox">100€</label>
-      <label class="checkbox"><input value="botex2"  name="opciones" type="checkbox">Bote X2</label>
-      <label class="checkbox"><input value="moto"  name="opciones" type="checkbox">Moto</label>
-      <label class="checkbox"><input value="bici"  name="opciones" type="checkbox">Bici</label>
-      <label class="checkbox"><input value="pc"  name="opciones" type="checkbox">Ordenador</label>
+      <label class="checkbox"><input  value="saltar" name="opciones" type="checkbox">Saltar</label><br>
+      <label class="checkbox"><input value="coche"  name="opciones" type="checkbox">Coche</label><br>
+      <label class="checkbox"><input value="5000"  name="opciones" type="checkbox">5000€ + Vuelve a tirar</label><br>
+      <label class="checkbox"><input value="bote"  name="opciones" type="checkbox">Bote</label><br>
+      <label class="checkbox"><input value="100"  name="opciones" type="checkbox">100€</label><br>
+      <label class="checkbox"><input value="botex2"  name="opciones" type="checkbox">Bote X2</label><br>
+      <label class="checkbox"><input value="moto"  name="opciones" type="checkbox">Moto</label><br>
+      <label class="checkbox"><input value="bici"  name="opciones" type="checkbox">Bici</label><br>
+      <label class="checkbox"><input value="pc"  name="opciones" type="checkbox">Ordenador</label><br>
       <label class="checkbox"><input value="nevera" name="opciones"  type="checkbox">Nevera</label><br><br> 
 
     <button class="button is-dark">Enviar</button>

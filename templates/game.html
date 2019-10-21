@@ -1,17 +1,66 @@
-{% extends 'base.html' %}
-    {% block title %}
-        {{ super() }}
-        Ruleta De La Suerte
-    {% endblock %}
+{% extends 'base.html' %} {% block title %}
+{{ super() }}
+Ruleta De La Suerte 
+{% endblock %} 
 
-    {% block main %}
 
-        <section class="ruleta">
+{% block main %}
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Ruleta
+      </h1>
+      <h2 class="subtitle">
+        Cada tirada vale 10€
+      </h2>
+    </div>
+  </div>
+</section>
 
-            <form action="#" method="post">
+<section class="ruleta">
 
-                <button type="submit">Tirar</button>
-            </form>
-        </section>
+  <h3>Ronda: {{ ronda }}</h3>
 
-    {% endblock %}
+  {% if ronda != 0 %}
+
+  <h3>Score : {{ score }}</h3>
+  <h3>Premio : {{ saldo }}€</h3>
+  <h3>Te ha tocado : {{ suerte }}</h3>
+
+  {% endif %} 
+  
+  {% if saltar == True %}
+  <form action="#" method="POST">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    <div class="select is-primary">
+      <select class="select" name="saltar" id="">
+        {% for i in range(0, 6) %}
+        <option value="{{ opciones[i] }}">{{ opciones[i] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button class="button is-info" type="submit">Recoger</button>
+  </form>
+  {% endif %}
+
+  {% if ronda > 7 %}
+
+    <button class="button is-info"> <a href="{{ url_for('final.html') }}">Retirarse</a> </button>
+
+  {% endif %}
+
+  <button class="button">
+    <a href="javascript:location.reload()">Tirar ruleta</a>
+  </button>
+
+  <section class="premios">
+    <ul>
+      {% for line in premios %}
+        <li>{{ line }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+</section>
+
+{% endblock %}

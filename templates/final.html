@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }}
+        Fin del Juego
+{% endblock %}
+
+{% block main %}
+<section class="hero is-primary">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Fin del juego
+            </h1>
+            <h2 class="subtitle">
+              Score: {{ score }}
+            </h2>
+          </div>
+        </div>
+      </section>
+      <form action="/final" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        <input class="imput" type="text" name="nombre" id="">
+        <button class="button is-info" type="submit">Guardar Scores</button>
+    </form>
+{% endblock %}
