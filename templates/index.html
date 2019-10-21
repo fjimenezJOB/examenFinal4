@@ -1,6 +1,10 @@
-{% extends 'base.html' %} {% block title %}
-{{ super() }}
-Home {% endblock %} {% block main %}
+{% extends 'base.html' %} 
+{% block title %}
+  {{ super() }}
+Elige tus opciones 
+  {% endblock %}
+
+{% block main %}
 <section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
@@ -8,38 +12,30 @@ Home {% endblock %} {% block main %}
         Voltexplay - Ruleta de la suerte
       </h1>
       <h2 class="subtitle">
-        Donde tus sueños se hacen realidad
+        Elige 7 opciones para rellenar tu ruleta
       </h2>
     </div>
   </div>
 </section>
+
 <div class="columns">
-  <div class="column">
-    
+  <div class="column is-left">
     <form class="formulario" action="/enviar" method="POST">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-      
-      <div class="select is-multiple">
-        <select multiple size="8" name="opciones_anyadidas">
-          <option value="casilla">Saltar casilla</option>
-          <option value="coche">Coche</option>
-          <option value="gira">5000€ + Vuelves a tirar</option>
-          <option value="bote">Bote</option>
-          <option value="100">100€</option>
-          <option value="pc">Ordenador</option>
-          <option value="x2">Bote X2</option>
-          <option value="nevera">Nevera</option>
-          <option value="moto">Moto</option>
-          <option value="bici">Bici</option>
-        </select>
-      </div>
-    <button class="is-info" type="submit">Enviar</button>
+
+      <label class="checkbox"><input  value="saltar" name="opciones" type="checkbox">Saltar</label>
+      <label class="checkbox"><input value="coche"  name="opciones" type="checkbox">Coche</label>
+      <label class="checkbox"><input value="5000"  name="opciones" type="checkbox">5000€ + Vuelve a tirar</label>
+      <label class="checkbox"><input value="bote"  name="opciones" type="checkbox">Bote</label>
+      <label class="checkbox"><input value="100"  name="opciones" type="checkbox">100€</label>
+      <label class="checkbox"><input value="botex2"  name="opciones" type="checkbox">Bote X2</label>
+      <label class="checkbox"><input value="moto"  name="opciones" type="checkbox">Moto</label>
+      <label class="checkbox"><input value="bici"  name="opciones" type="checkbox">Bici</label>
+      <label class="checkbox"><input value="pc"  name="opciones" type="checkbox">Ordenador</label>
+      <label class="checkbox"><input value="nevera" name="opciones"  type="checkbox">Nevera</label><br><br> 
+
+    <button class="button is-dark">Enviar</button>
   </form>
 </div>
   </div>
-  <div class="column">
-    Second column
-  </div>
-</div>
   {% endblock %}
-</div>
