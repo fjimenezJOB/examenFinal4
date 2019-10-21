@@ -15,13 +15,14 @@ class Logica:
         self.score = score
         self.saltar = False
 
-        # Metodo que escribe el score en el archivo txt
+        # Metodo que escribe el registro de premios en el archivo txt
 
     def escribir_historico(self, premio):
         with open('registro.txt', 'a') as f:
             f.write(f'{premio}\n')
         f.close()
 
+        # Metodo que lee el registro de premios en el archivo txt
     def leer_historico(self):
         historia = []
         with open('registro.txt', 'r') as f:
@@ -30,14 +31,12 @@ class Logica:
                 return historia
 
     def escribir(self, nombre, score):
-
         ahora = time.strftime("%c")  # Fecha y hora actuales
         with open('scores.txt', 'a+') as f:
             f.write(f'{nombre},{score},{ahora}\n')
         f.close()
 
         # Metodo que lee el txt
-
     def leer(self):
         lineas = []
         with open('scores.txt', 'r') as f:
@@ -106,7 +105,7 @@ class Logica:
 
         elif suerte == 'bote':
             self.score *= 2
-            l.setBote(self,self.saldo)
+            l.setBote(self, self.saldo)
 
         elif suerte == '100':
 

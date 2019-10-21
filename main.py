@@ -20,6 +20,8 @@ def ruleta():
     suerte = game.random()
     saldo, score, ronda, saltar, pierde = game.normas(suerte)
     premios = game.leer_historico()
+    for line in premios:
+        print(premios)
     context = {
         'saldo': saldo,
         'suerte': suerte,

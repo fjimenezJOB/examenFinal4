@@ -44,15 +44,15 @@ Ruleta De La Suerte
   </form>
   {% endif %}
 
-  {% if ronda > 7 %}
-
-    <button class="button is-info"> <a href="{{ url_for('final') }}">Retirarse</a> </button>
-
-  {% endif %}
-
+  
   <button class="button">
     <a href="javascript:location.reload()">Tirar ruleta</a>
   </button>
-</section>
+</section><br><br>
 
+{% if ronda > 7 %}
+
+  <button class="button is-info"> <a href="{{ url_for('final') }}">Retirarse</a> </button>
+
+{% endif %}
 {% endblock %}
