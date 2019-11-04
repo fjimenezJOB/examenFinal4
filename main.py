@@ -6,7 +6,7 @@ import time
 app = Flask(__name__)
 app.secret_key = 'examen_final'
 csrf = CSRFProtect(app)
-game = Logica(500, 0, False, -1)
+game = Logica(500, 0, False, 0)
 
 @app.route('/')
 def home():

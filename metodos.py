@@ -74,6 +74,7 @@ class Logica:
         elif suerte == 'PIERDE':
             self.saldo = 0
             pierde = True
+            self.ronda = 0
 
         elif suerte == '200':
             self.saldo += 200
